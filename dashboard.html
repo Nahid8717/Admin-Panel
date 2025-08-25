@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    nav { background:#333; padding:10px; color:white; }
+    nav button { margin-right:10px; }
+    section { display:none; margin-top:20px; }
+    table { border-collapse: collapse; width:100%; margin-top:10px; }
+    table, th, td { border:1px solid #ddd; padding:8px; }
+    th { background:#f2f2f2; }
+  </style>
+</head>
+<body>
+  <nav>
+    <button onclick="show('dashboard')">Dashboard</button>
+    <button onclick="show('withdraws')">Withdraw Requests</button>
+    <button onclick="show('users')">User Management</button>
+    <button onclick="show('settings')">Settings</button>
+    <button onclick="logout()">Logout</button>
+  </nav>
+
+  <section id="dashboard">
+    <h2>Welcome, Admin</h2>
+    <p>Control everything from here ✅</p>
+  </section>
+
+  <section id="withdraws">
+    <h2>Withdraw Requests</h2>
+    <table>
+      <thead><tr><th>User</th><th>Amount</th><th>Method</th><th>Status</th><th>Actions</th></tr></thead>
+      <tbody id="withdrawList"></tbody>
+    </table>
+  </section>
+
+  <section id="users">
+    <h2>User Management</h2>
+    <table>
+      <thead><tr><th>User ID</th><th>Name</th><th>Balance</th><th>Actions</th></tr></thead>
+      <tbody id="userList"></tbody>
+    </table>
+  </section>
+
+  <section id="settings">
+    <h2>Settings</h2>
+    <h4>Minimum Withdraw</h4>
+    <input type="number" id="minWithdraw" placeholder="Minimum Amount">
+    <button onclick="saveMinWithdraw()">Save</button>
+
+    <h4>Withdraw Methods</h4>
+    <input type="text" id="newMethod" placeholder="Add Method">
+    <button onclick="addMethod()">Add</button>
+    <ul id="methodList"></ul>
+
+    <h4>Ads</h4>
+    <input type="text" id="adTitle" placeholder="Ad Title">
+    <input type="text" id="adImage" placeholder="Ad Image URL">
+    <input type="text" id="adLink" placeholder="Ad Link">
+    <input type="number" id="adReward" placeholder="Reward Amount">
+    <button onclick="addAd()">Add Ad</button>
+    <ul id="adsList"></ul>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+      </html>
